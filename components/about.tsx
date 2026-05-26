@@ -1,6 +1,6 @@
 export function About() {
   return (
-    <section id="about" className="py-24 md:py-32">
+    <section id="about" className="pt-24 md:pt-32 pb-8 md:pb-12">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         {/* Header */}
         <div>

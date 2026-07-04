@@ -120,13 +120,11 @@ function VideoCard({ title, videoSrc }: VideoCardProps) {
 const projects = [
   {
     title: "Advertisement",
-    videoSrc:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/12765403_1920_1080_25fps-RDs4iX8sDveg12J6pcb4B7uwdHOHzk.mp4",
+    videoSrc: "https://fivhph8bfjjq3xsn.public.blob.vercel-storage.com/adidas_ai_spec%20%282160p%29.mp4",
   },
   {
     title: "Promotional",
-    videoSrc:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/14223222_1920_1080_60fps-dbOtNFK5IM1hifrWDZ4Wy1bBIIHazL.mp4",
+    videoSrc: "https://fivhph8bfjjq3xsn.public.blob.vercel-storage.com/Khabib%20For%20Site.mp4",
   },
   {
     title: "Performance",

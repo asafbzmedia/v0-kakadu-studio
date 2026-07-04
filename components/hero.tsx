@@ -7,7 +7,7 @@ export function Hero() {
     <section id="hero" className="py-16 md:py-24">
       <div className="mx-auto w-full max-w-5xl px-4 md:px-6">
         <video
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/12765403_1920_1080_25fps-PsqTT4BJYbL3VfnkOTFnUitU0Tl1Rv.mp4"
+          src="https://fivhph8bfjjq3xsn.public.blob.vercel-storage.com/Kakadu%20.mp4"
           autoPlay
           loop
           muted

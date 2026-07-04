@@ -1,20 +1,20 @@
-import { Feather, Wind, Sparkles } from "lucide-react"
+import { KakaduCreative, KakaduSpeed, KakaduScale } from "@/components/icons/kakadu-birds"
 
 const values = [
   {
-    icon: Feather,
+    icon: KakaduCreative,
     title: "Infinite Creative Freedom",
     description:
       "No limits on locations, actors, or physics. If you can imagine it, we can bring it to life on screen with cinematic quality.",
   },
   {
-    icon: Wind,
+    icon: KakaduSpeed,
     title: "Hyper-Speed Turnaround",
     description:
       "Traditional productions take months. Our advanced AI workflow condenses timelines into days, keeping your brand ahead of the market.",
   },
   {
-    icon: Sparkles,
+    icon: KakaduScale,
     title: "Premium Scale, Smart Budgets",
     description:
       "Get block-buster visuals and high-end production value at a fraction of the cost of traditional camera crews and VFX studios.",
@@ -41,8 +41,8 @@ export function ValueProposition() {
                 key={value.title}
                 className="group rounded-xl border border-border bg-card p-8 transition-all duration-300 hover:-translate-y-1 hover:border-kakadu/50 hover:shadow-lg"
               >
-                <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-muted text-foreground transition-all duration-300 group-hover:bg-kakadu/15 group-hover:text-kakadu group-hover:[filter:drop-shadow(0_0_10px_var(--kakadu-glow))]">
-                  <Icon className="h-6 w-6" strokeWidth={1.5} aria-hidden="true" />
+                <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-[oklch(0.98_0.01_95)] p-2.5 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:[filter:drop-shadow(0_0_14px_var(--kakadu-glow))]">
+                  <Icon className="h-full w-full" aria-hidden="true" />
                 </div>
                 <h3 className="mb-3 text-xl font-semibold tracking-tight text-card-foreground">
                   {value.title}

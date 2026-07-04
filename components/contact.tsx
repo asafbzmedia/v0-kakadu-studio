@@ -3,6 +3,7 @@
 import * as React from "react"
 import { Mail, MapPin, Phone } from "lucide-react"
 
+import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -41,15 +42,15 @@ export function Contact() {
   }
 
   return (
-    <section
-      id="contact"
-      className="flex min-h-screen items-center bg-muted py-24 md:py-32"
-    >
+    <section id="contact" className="py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left Column - Headline & Contact Info */}
           <div className="flex flex-col justify-center">
-            <h2 className="mb-4 text-4xl font-semibold tracking-tight text-foreground md:text-5xl lg:text-6xl text-balance">
+            <Badge variant="secondary" className="mb-4 w-fit">
+              Get in touch
+            </Badge>
+            <h2 className="mb-4 text-balance text-3xl font-semibold tracking-tight text-foreground md:text-4xl lg:text-5xl">
               Let&apos;s Create Something Amazing
             </h2>
             <p className="mb-12 max-w-lg text-lg text-muted-foreground">
@@ -60,9 +61,9 @@ export function Contact() {
             {/* Contact Methods */}
             <div className="flex flex-col gap-6">
               {contactMethods.map((method) => (
-                <div key={method.label} className="flex items-center gap-4">
-                  <div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-background shadow-md">
-                    <method.icon className="size-5 text-foreground" />
+                <div key={method.label} className="group flex items-center gap-4">
+                  <div className="flex size-12 shrink-0 items-center justify-center rounded-lg border border-border bg-muted text-foreground transition-all duration-300 group-hover:bg-kakadu/15 group-hover:text-kakadu group-hover:[filter:drop-shadow(0_0_10px_var(--kakadu-glow))]">
+                    <method.icon className="size-5" strokeWidth={1.5} aria-hidden="true" />
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">
@@ -71,7 +72,7 @@ export function Contact() {
                     {method.href ? (
                       <a
                         href={method.href}
-                        className="text-foreground hover:text-muted-foreground transition-colors"
+                        className="text-foreground transition-colors hover:text-kakadu"
                       >
                         {method.value}
                       </a>
@@ -86,7 +87,7 @@ export function Contact() {
 
           {/* Right Column - Form Card */}
           <div className="flex items-center">
-            <div className="w-full rounded-2xl bg-background p-6 shadow-lg md:p-8">
+            <div className="w-full rounded-xl border border-border bg-card p-6 md:p-8">
               <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div className="flex flex-col gap-2">

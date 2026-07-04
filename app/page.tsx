@@ -1,7 +1,6 @@
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
-import { About } from "@/components/about"
-import { TeamShowcase } from "@/components/team-showcase"
+import { ValueProposition } from "@/components/value-proposition"
 import { Services } from "@/components/services"
 import { SelectedWork } from "@/components/selected-work"
 import { Contact } from "@/components/contact"
@@ -12,10 +11,9 @@ export default function Page() {
       <Header />
       <main>
         <Hero />
-        <About />
-        <TeamShowcase />
-        <Services />
+        <ValueProposition />
         <SelectedWork />
+        <Services />
         <Contact />
       </main>
     </>

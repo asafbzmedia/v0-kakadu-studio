@@ -1,180 +1,129 @@
 "use client"
 
-import { useRef, useEffect, useState } from "react"
-
-interface VideoCardProps {
-  title: string
-  videoSrc: string
-}
-
-function VideoCard({ title, videoSrc }: VideoCardProps) {
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const cardRef = useRef<HTMLDivElement>(null)
-  const [isPlaying, setIsPlaying] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
-  const [isLoaded, setIsLoaded] = useState(false)
-
-  // Detect mobile on mount
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.matchMedia("(max-width: 767px)").matches)
-    }
-    checkMobile()
-    window.addEventListener("resize", checkMobile)
-    return () => window.removeEventListener("resize", checkMobile)
-  }, [])
-
-  // Mobile: Intersection Observer for viewport center detection
-  useEffect(() => {
-    if (!isMobile || !cardRef.current) return
-
-    const handleScroll = () => {
-      if (!cardRef.current) return
-      const rect = cardRef.current.getBoundingClientRect()
-      const viewportHeight = window.innerHeight
-      const elementCenter = rect.top + rect.height / 2
-      const viewportCenter = viewportHeight / 2
-      const threshold = viewportHeight * 0.3
-
-      const isNearCenter = Math.abs(elementCenter - viewportCenter) < threshold
-      const isVisible = rect.top < viewportHeight && rect.bottom > 0
-      
-      setIsPlaying(isNearCenter && isVisible)
-    }
-
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    handleScroll()
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [isMobile])
-
-  // Handle video play/pause
-  useEffect(() => {
-    const video = videoRef.current
-    if (!video) return
-
-    if (isPlaying) {
-      const playPromise = video.play()
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          // Autoplay blocked, silently fail
-        })
-      }
-    } else {
-      video.pause()
-      video.currentTime = 0
-    }
-  }, [isPlaying])
-
-  const handleMouseEnter = () => {
-    if (!isMobile) {
-      setIsPlaying(true)
-    }
-  }
-
-  const handleMouseLeave = () => {
-    if (!isMobile) {
-      setIsPlaying(false)
-    }
-  }
-
-  const handleLoadedData = () => {
-    setIsLoaded(true)
-    // Ensure video is paused and at first frame initially
-    if (videoRef.current && !isPlaying) {
-      videoRef.current.pause()
-      videoRef.current.currentTime = 0
-    }
-  }
-
-  return (
-    <div
-      ref={cardRef}
-      className="group relative aspect-[4/3] w-full cursor-default overflow-hidden rounded-lg bg-muted"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      {/* Video - always visible, shows first frame when paused */}
-      <video
-        ref={videoRef}
-        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${
-          isLoaded ? "opacity-100" : "opacity-0"
-        }`}
-        muted
-        loop
-        playsInline
-        preload="auto"
-        onLoadedData={handleLoadedData}
-      >
-        <source src={videoSrc} type="video/mp4" />
-      </video>
-
-      {/* Loading placeholder */}
-      {!isLoaded && (
-        <div className="absolute inset-0 bg-muted animate-pulse" />
-      )}
-
-      {/* Gradient overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-
-      {/* Title */}
-      <div className="absolute bottom-0 left-0 right-0 p-6">
-        <h3 className="text-2xl font-medium text-white md:text-3xl">{title}</h3>
-      </div>
-    </div>
-  )
-}
+import { useState } from "react"
+import { Megaphone, Feather, Video, Clapperboard, Eye, Film, ChevronLeft, ChevronRight } from "lucide-react"
 
 const services = [
   {
+    icon: Megaphone,
     title: "Advertisement",
-    videoSrc: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/12765403_1920_1080_25fps-RDs4iX8sDveg12J6pcb4B7uwdHOHzk.mp4",
+    description: "High-impact commercial spots crafted to capture attention and drive conversions.",
   },
   {
+    icon: Feather,
     title: "Promotional",
-    videoSrc: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/14223222_1920_1080_60fps-dbOtNFK5IM1hifrWDZ4Wy1bBIIHazL.mp4",
+    description: "Polished promo content that showcases your brand's story with cinematic flair.",
   },
   {
+    icon: Video,
     title: "Performance",
-    videoSrc: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/14599835_3840_2160_25fps-yRwAFiswOqteQwNYLmApTmfuwY9KCo.mp4",
+    description: "Data-driven creative built to maximize engagement across paid channels.",
   },
   {
+    icon: Clapperboard,
     title: "Vertical micro-drama",
-    videoSrc: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4546853-hd_1080_1920_25fps-3Wr1M1QISJ1UsYjwozi1HNffJznC8B.mp4",
+    description: "Short-form episodic narratives designed for mobile-first audiences.",
   },
   {
+    icon: Eye,
     title: "Explainer",
-    videoSrc: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/6534938-hd_1080_1920_24fps-3u3kWjxbG5QCQGJ42XjZ6tm5RCIUW6.mp4",
+    description: "Clear, engaging videos that break down complex ideas into simple stories.",
   },
   {
+    icon: Film,
     title: "Short Film",
-    videoSrc: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/14904221_1080_1920_30fps-e3HiwZxJvX69Oq7sYwAd50R4Pd8WYh.mp4",
+    description: "Original cinematic pieces that push the boundaries of AI-driven storytelling.",
   },
 ]
 
 export function Services() {
+  const [active, setActive] = useState(0)
+
+  const prev = () => setActive((i) => (i === 0 ? services.length - 1 : i - 1))
+  const next = () => setActive((i) => (i === services.length - 1 ? 0 : i + 1))
+
   return (
-    <section id="services" className="py-24 md:py-32">
+    <section id="services" className="overflow-hidden py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         {/* Header */}
         <div className="mb-12 md:mb-16">
-          <p className="mb-4 text-sm font-medium uppercase tracking-wider text-muted-foreground">
-            Services
-          </p>
-          <h2 className="max-w-3xl text-3xl font-bold tracking-tight text-foreground md:text-4xl lg:text-5xl">
+          <p className="mb-4 text-sm font-medium uppercase tracking-wider text-muted-foreground">Services</p>
+          <h2 className="max-w-3xl text-balance text-3xl font-bold tracking-tight text-foreground md:text-4xl lg:text-5xl">
             Video production tailored to your needs
           </h2>
         </div>
+      </div>
 
-        {/* Video Cards Grid */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
-          {services.map((service) => (
-            <VideoCard
+      {/* Carousel viewport */}
+      <div className="relative mx-auto h-96 w-full overflow-hidden">
+        {services.map((service, index) => {
+          const Icon = service.icon
+          const count = services.length
+          // Circular distance from the active card, wrapped to [-count/2, count/2]
+          let offset = index - active
+          if (offset > count / 2) offset -= count
+          if (offset < -count / 2) offset += count
+
+          const isActive = offset === 0
+          const isVisible = Math.abs(offset) <= 1
+          const scale = isActive ? 1 : 0.85
+
+          return (
+            <button
               key={service.title}
-              title={service.title}
-              videoSrc={service.videoSrc}
-            />
-          ))}
-        </div>
+              type="button"
+              onClick={() => setActive(index)}
+              aria-label={`View ${service.title}`}
+              aria-current={isActive}
+              tabIndex={isVisible ? 0 : -1}
+              style={{
+                transform: `translateX(calc(-50% + ${offset} * 22rem)) scale(${scale})`,
+                zIndex: isActive ? 20 : 10 - Math.abs(offset),
+                opacity: isVisible ? (isActive ? 1 : 0.5) : 0,
+                pointerEvents: isVisible ? "auto" : "none",
+              }}
+              className={`group absolute left-1/2 top-0 flex h-96 w-80 flex-col rounded-2xl border p-8 text-left transition-all duration-500 ease-out ${
+                isActive
+                  ? "border-kakadu/50 bg-card shadow-2xl shadow-primary/10"
+                  : "border-border bg-card/50 hover:opacity-75"
+              }`}
+            >
+              <div
+                className={`mb-6 flex h-16 w-16 items-center justify-center rounded-xl transition-all duration-500 ${
+                  isActive
+                    ? "bg-kakadu/15 text-kakadu [filter:drop-shadow(0_0_10px_var(--kakadu-glow))]"
+                    : "bg-muted text-muted-foreground group-hover:bg-kakadu/15 group-hover:text-kakadu group-hover:[filter:drop-shadow(0_0_10px_var(--kakadu-glow))]"
+                }`}
+              >
+                <Icon className="h-8 w-8" strokeWidth={1.5} aria-hidden="true" />
+              </div>
+              <div className="mt-auto">
+                <h3 className="mb-3 text-2xl font-bold tracking-tight text-foreground">{service.title}</h3>
+                <p className="text-pretty leading-relaxed text-muted-foreground">{service.description}</p>
+              </div>
+            </button>
+          )
+        })}
+      </div>
+
+      {/* Navigation arrows */}
+      <div className="mt-10 flex items-center justify-center gap-4">
+        <button
+          type="button"
+          onClick={prev}
+          aria-label="Previous service"
+          className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-card text-foreground transition-colors hover:border-primary/50 hover:bg-muted"
+        >
+          <ChevronLeft className="h-5 w-5" />
+        </button>
+        <button
+          type="button"
+          onClick={next}
+          aria-label="Next service"
+          className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-card text-foreground transition-colors hover:border-primary/50 hover:bg-muted"
+        >
+          <ChevronRight className="h-5 w-5" />
+        </button>
       </div>
     </section>
   )

@@ -109,10 +109,6 @@ function VideoCard({ title, videoSrc }: VideoCardProps) {
 
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-30" />
       </div>
-
-      <h3 className="text-lg font-medium tracking-tight text-foreground md:text-xl">
-        {title}
-      </h3>
     </article>
   )
 }
@@ -153,18 +149,13 @@ export function SelectedWork() {
     <section id="work" className="py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         {/* Header */}
-        <div className="mb-12 flex items-end justify-between">
-          <div>
-            <Badge variant="secondary" className="mb-4">
-              Portfolio
-            </Badge>
-            <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
-              Selected Work
-            </h2>
-          </div>
-          <p className="hidden max-w-md text-muted-foreground md:block">
-            A curated collection of our finest AI-powered video productions
-          </p>
+        <div className="mb-12">
+          <Badge variant="secondary" className="mb-4">
+            Portfolio
+          </Badge>
+          <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+            Selected Work
+          </h2>
         </div>
 
         {/* Video Grid - each video shown clearly */}

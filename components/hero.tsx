@@ -12,7 +12,7 @@ export function Hero() {
           loop
           muted
           playsInline
-          className="aspect-[4/5] w-full rounded-lg border border-border object-cover sm:aspect-video"
+          className="aspect-[16/10] w-full rounded-lg border border-border object-cover sm:aspect-video"
         />
       </div>
 

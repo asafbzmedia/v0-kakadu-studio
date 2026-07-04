@@ -128,13 +128,11 @@ const projects = [
   },
   {
     title: "Vertical micro-drama",
-    videoSrc:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4546853-hd_1080_1920_25fps-3Wr1M1QISJ1UsYjwozi1HNffJznC8B.mp4",
+    videoSrc: "https://fivhph8bfjjq3xsn.public.blob.vercel-storage.com/Noir.mp4",
   },
   {
     title: "Explainer",
-    videoSrc:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/6534938-hd_1080_1920_24fps-3u3kWjxbG5QCQGJ42XjZ6tm5RCIUW6.mp4",
+    videoSrc: "https://fivhph8bfjjq3xsn.public.blob.vercel-storage.com/Magneto%20no%20sub.mp4",
   },
   {
     title: "Short Film",

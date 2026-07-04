@@ -1,7 +1,6 @@
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
 import { ValueProposition } from "@/components/value-proposition"
-import { About } from "@/components/about"
 import { Services } from "@/components/services"
 import { SelectedWork } from "@/components/selected-work"
 import { Contact } from "@/components/contact"
@@ -13,7 +12,6 @@ export default function Page() {
       <main>
         <Hero />
         <ValueProposition />
-        <About />
         <Services />
         <SelectedWork />
         <Contact />

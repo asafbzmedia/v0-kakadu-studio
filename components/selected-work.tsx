@@ -124,8 +124,7 @@ const projects = [
   },
   {
     title: "Performance",
-    videoSrc:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/14599835_3840_2160_25fps-yRwAFiswOqteQwNYLmApTmfuwY9KCo.mp4",
+    videoSrc: "https://fivhph8bfjjq3xsn.public.blob.vercel-storage.com/Kakadu%20.mp4",
   },
   {
     title: "Vertical micro-drama",

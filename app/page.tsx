@@ -12,8 +12,8 @@ export default function Page() {
       <main>
         <Hero />
         <ValueProposition />
-        <Services />
         <SelectedWork />
+        <Services />
         <Contact />
       </main>
     </>

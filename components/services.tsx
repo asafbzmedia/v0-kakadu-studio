@@ -64,42 +64,53 @@ export function Services() {
       </div>
 
       {/* Carousel viewport */}
-      <div className="relative flex w-full overflow-hidden">
-        <div
-          className="flex items-center transition-transform duration-500 ease-out"
-          style={{ transform: `translateX(calc(50vw - ${active} * 21.5rem - 10.75rem))` }}
-        >
-          {services.map((service, index) => {
-            const Icon = service.icon
-            const isActive = index === active
-            return (
-              <button
-                key={service.title}
-                type="button"
-                onClick={() => setActive(index)}
-                aria-label={`View ${service.title}`}
-                aria-current={isActive}
-                className={`mx-3 flex h-96 w-80 shrink-0 flex-col rounded-2xl border p-8 text-left transition-all duration-500 ${
-                  isActive
-                    ? "scale-100 border-primary/50 bg-card opacity-100 shadow-2xl shadow-primary/10"
-                    : "scale-90 border-border bg-card/50 opacity-50 hover:opacity-75"
+      <div className="relative mx-auto h-96 w-full overflow-hidden">
+        {services.map((service, index) => {
+          const Icon = service.icon
+          const count = services.length
+          // Circular distance from the active card, wrapped to [-count/2, count/2]
+          let offset = index - active
+          if (offset > count / 2) offset -= count
+          if (offset < -count / 2) offset += count
+
+          const isActive = offset === 0
+          const isVisible = Math.abs(offset) <= 1
+          const scale = isActive ? 1 : 0.85
+
+          return (
+            <button
+              key={service.title}
+              type="button"
+              onClick={() => setActive(index)}
+              aria-label={`View ${service.title}`}
+              aria-current={isActive}
+              tabIndex={isVisible ? 0 : -1}
+              style={{
+                transform: `translateX(calc(-50% + ${offset} * 22rem)) scale(${scale})`,
+                zIndex: isActive ? 20 : 10 - Math.abs(offset),
+                opacity: isVisible ? (isActive ? 1 : 0.5) : 0,
+                pointerEvents: isVisible ? "auto" : "none",
+              }}
+              className={`absolute left-1/2 top-0 flex h-96 w-80 flex-col rounded-2xl border p-8 text-left transition-all duration-500 ease-out ${
+                isActive
+                  ? "border-primary/50 bg-card shadow-2xl shadow-primary/10"
+                  : "border-border bg-card/50 hover:opacity-75"
+              }`}
+            >
+              <div
+                className={`mb-6 flex h-16 w-16 items-center justify-center rounded-xl transition-colors duration-500 ${
+                  isActive ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
                 }`}
               >
-                <div
-                  className={`mb-6 flex h-16 w-16 items-center justify-center rounded-xl transition-colors duration-500 ${
-                    isActive ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
-                  }`}
-                >
-                  <Icon className="h-8 w-8" strokeWidth={1.5} />
-                </div>
-                <div className="mt-auto">
-                  <h3 className="mb-3 text-2xl font-bold tracking-tight text-foreground">{service.title}</h3>
-                  <p className="text-pretty leading-relaxed text-muted-foreground">{service.description}</p>
-                </div>
-              </button>
-            )
-          })}
-        </div>
+                <Icon className="h-8 w-8" strokeWidth={1.5} />
+              </div>
+              <div className="mt-auto">
+                <h3 className="mb-3 text-2xl font-bold tracking-tight text-foreground">{service.title}</h3>
+                <p className="text-pretty leading-relaxed text-muted-foreground">{service.description}</p>
+              </div>
+            </button>
+          )
+        })}
       </div>
 
       {/* Navigation arrows */}

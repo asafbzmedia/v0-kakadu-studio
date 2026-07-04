@@ -41,7 +41,7 @@ export function ValueProposition() {
                 key={value.title}
                 className="group rounded-xl border border-border bg-card p-8 transition-all duration-300 hover:-translate-y-1 hover:border-kakadu/50 hover:shadow-lg"
               >
-                <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-[oklch(0.98_0.01_95)] p-2.5 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:[filter:drop-shadow(0_0_14px_var(--kakadu-glow))]">
+                <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-xl border border-border bg-white/5 p-2.5 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:border-kakadu/40 group-hover:bg-kakadu/10 group-hover:[filter:drop-shadow(0_0_16px_var(--kakadu-glow))]">
                   <Icon className="h-full w-full" aria-hidden="true" />
                 </div>
                 <h3 className="mb-3 text-xl font-semibold tracking-tight text-card-foreground">

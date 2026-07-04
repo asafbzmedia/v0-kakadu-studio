@@ -1,7 +1,9 @@
 import type { SVGProps } from "react"
 
 const GREEN = "#79c651"
-const DARK = "#252d32"
+// Linework recolored from the original dark outline to a crisp off-white
+// so the birds read clearly against the site's dark premium cards.
+const DARK = "#f5f3ec"
 const GOLD = "#ffc960"
 
 /** Asset 5 — perched cockatoo (Creative) */

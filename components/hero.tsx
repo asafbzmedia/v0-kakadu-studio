@@ -4,19 +4,19 @@ import { Button } from "@/components/ui/button"
 
 export function Hero() {
   return (
-    <section id="hero" className="py-16 md:py-24">
-      <div className="mx-auto w-full max-w-5xl px-4 md:px-6">
+    <section id="hero" className="py-8 md:py-24">
+      <div className="mx-auto w-full max-w-5xl px-2 md:px-6">
         <video
           src="https://fivhph8bfjjq3xsn.public.blob.vercel-storage.com/Kakadu%20.mp4"
           autoPlay
           loop
           muted
           playsInline
-          className="w-full rounded-lg border border-border object-cover aspect-video"
+          className="aspect-[4/5] w-full rounded-lg border border-border object-cover sm:aspect-video"
         />
       </div>
 
-      <div className="mx-auto mt-12 max-w-6xl px-4 md:mt-16 md:px-6">
+      <div className="mx-auto mt-8 max-w-6xl px-4 md:mt-16 md:px-6">
         <div className="flex flex-col items-center text-center">
           <h1 className="mb-4 max-w-3xl text-4xl font-semibold tracking-tight text-foreground md:text-5xl lg:text-6xl text-balance">
             Transform Your Vision Into Cinematic Reality
@@ -28,7 +28,7 @@ export function Hero() {
             elevate your brand.
           </p>
 
-          <div className="flex flex-col gap-3 sm:flex-row">
+          <div className="flex flex-row gap-3">
             <Button size="lg" asChild>
               <a href="#work">
                 View Our Work

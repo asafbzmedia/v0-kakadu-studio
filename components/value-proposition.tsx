@@ -1,20 +1,20 @@
-import { FeatherIcon, WingIcon, BeakIcon } from "@/components/icons/kakadu-icons"
+import { Feather, Wind, Sparkles } from "lucide-react"
 
 const values = [
   {
-    icon: FeatherIcon,
+    icon: Feather,
     title: "Infinite Creative Freedom",
     description:
       "No limits on locations, actors, or physics. If you can imagine it, we can bring it to life on screen with cinematic quality.",
   },
   {
-    icon: WingIcon,
+    icon: Wind,
     title: "Hyper-Speed Turnaround",
     description:
       "Traditional productions take months. Our advanced AI workflow condenses timelines into days, keeping your brand ahead of the market.",
   },
   {
-    icon: BeakIcon,
+    icon: Sparkles,
     title: "Premium Scale, Smart Budgets",
     description:
       "Get block-buster visuals and high-end production value at a fraction of the cost of traditional camera crews and VFX studios.",
@@ -42,7 +42,7 @@ export function ValueProposition() {
                 className="group rounded-xl border border-border bg-card p-8 transition-all duration-300 hover:-translate-y-1 hover:border-kakadu/50 hover:shadow-lg"
               >
                 <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-muted text-foreground transition-all duration-300 group-hover:bg-kakadu/15 group-hover:text-kakadu group-hover:[filter:drop-shadow(0_0_10px_var(--kakadu-glow))]">
-                  <Icon className="h-6 w-6" />
+                  <Icon className="h-6 w-6" strokeWidth={1.5} aria-hidden="true" />
                 </div>
                 <h3 className="mb-3 text-xl font-semibold tracking-tight text-card-foreground">
                   {value.title}

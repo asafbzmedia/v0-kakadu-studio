@@ -1,16 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import {
-  Megaphone,
-  Sparkles,
-  TrendingUp,
-  Clapperboard,
-  Lightbulb,
-  Film,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react"
+import { Megaphone, Feather, Video, Clapperboard, Eye, Film, ChevronLeft, ChevronRight } from "lucide-react"
 
 const services = [
   {
@@ -19,12 +10,12 @@ const services = [
     description: "High-impact commercial spots crafted to capture attention and drive conversions.",
   },
   {
-    icon: Sparkles,
+    icon: Feather,
     title: "Promotional",
     description: "Polished promo content that showcases your brand's story with cinematic flair.",
   },
   {
-    icon: TrendingUp,
+    icon: Video,
     title: "Performance",
     description: "Data-driven creative built to maximize engagement across paid channels.",
   },
@@ -34,7 +25,7 @@ const services = [
     description: "Short-form episodic narratives designed for mobile-first audiences.",
   },
   {
-    icon: Lightbulb,
+    icon: Eye,
     title: "Explainer",
     description: "Clear, engaging videos that break down complex ideas into simple stories.",
   },
@@ -91,18 +82,20 @@ export function Services() {
                 opacity: isVisible ? (isActive ? 1 : 0.5) : 0,
                 pointerEvents: isVisible ? "auto" : "none",
               }}
-              className={`absolute left-1/2 top-0 flex h-96 w-80 flex-col rounded-2xl border p-8 text-left transition-all duration-500 ease-out ${
+              className={`group absolute left-1/2 top-0 flex h-96 w-80 flex-col rounded-2xl border p-8 text-left transition-all duration-500 ease-out ${
                 isActive
-                  ? "border-primary/50 bg-card shadow-2xl shadow-primary/10"
+                  ? "border-kakadu/50 bg-card shadow-2xl shadow-primary/10"
                   : "border-border bg-card/50 hover:opacity-75"
               }`}
             >
               <div
-                className={`mb-6 flex h-16 w-16 items-center justify-center rounded-xl transition-colors duration-500 ${
-                  isActive ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
+                className={`mb-6 flex h-16 w-16 items-center justify-center rounded-xl transition-all duration-500 ${
+                  isActive
+                    ? "bg-kakadu/15 text-kakadu [filter:drop-shadow(0_0_10px_var(--kakadu-glow))]"
+                    : "bg-muted text-muted-foreground group-hover:bg-kakadu/15 group-hover:text-kakadu group-hover:[filter:drop-shadow(0_0_10px_var(--kakadu-glow))]"
                 }`}
               >
-                <Icon className="h-8 w-8" strokeWidth={1.5} />
+                <Icon className="h-8 w-8" strokeWidth={1.5} aria-hidden="true" />
               </div>
               <div className="mt-auto">
                 <h3 className="mb-3 text-2xl font-bold tracking-tight text-foreground">{service.title}</h3>

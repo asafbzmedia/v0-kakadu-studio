@@ -2,22 +2,22 @@ import { KakaduCreative, KakaduSpeed, KakaduScale } from "@/components/icons/kak
 
 const values = [
   {
-    icon: KakaduCreative,
-    title: "Infinite Creative Freedom",
+    icon: KakaduScale,
+    title: "Ideas Without Limits",
     description:
-      "No limits on locations, actors, or physics. If you can imagine it, we can bring it to life on screen with cinematic quality.",
+      "Bring impossible concepts to life—from futuristic worlds to abstract cybersecurity threats—without the constraints of traditional production.",
   },
   {
     icon: KakaduSpeed,
-    title: "Hyper-Speed Turnaround",
+    title: "Launch While It Matters",
     description:
-      "Traditional productions take months. Our advanced AI workflow condenses timelines into days, keeping your brand ahead of the market.",
+      "Markets move fast. Campaigns shouldn't take months. Our AI-powered workflow helps you go from concept to final delivery in days—not weeks.",
   },
   {
-    icon: KakaduScale,
-    title: "Premium Scale, Smart Budgets",
+    icon: KakaduCreative,
+    title: "Stand Out.",
     description:
-      "Get block-buster visuals and high-end production value at a fraction of the cost of traditional camera crews and VFX studios.",
+      "Cinematic production value, built for modern teams. So you can focus on marketing strategy, not production logistics.",
   },
 ]
 
@@ -28,7 +28,7 @@ export function ValueProposition() {
         {/* Header */}
         <div className="mb-12 md:mb-16">
           <h2 className="max-w-3xl text-balance text-3xl font-bold tracking-tight text-foreground md:text-4xl lg:text-5xl">
-            Why AI Video Production?
+            Why Modern Brands Choose AI-Powered Production
           </h2>
         </div>
 

@@ -1,8 +1,35 @@
-import { ArrowRight } from "lucide-react"
+"use client"
+
+import { useRef, useState } from "react"
+import { ArrowRight, Pause, Play, Volume2, VolumeX } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 
 export function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [isPlaying, setIsPlaying] = useState(true)
+  const [isMuted, setIsMuted] = useState(true)
+
+  const togglePlay = () => {
+    const video = videoRef.current
+    if (!video) return
+    if (video.paused) {
+      video.play()
+      setIsPlaying(true)
+    } else {
+      video.pause()
+      setIsPlaying(false)
+    }
+  }
+
+  const toggleMute = () => {
+    const video = videoRef.current
+    if (!video) return
+    const nextMuted = !video.muted
+    video.muted = nextMuted
+    setIsMuted(nextMuted)
+  }
+
   return (
     <section id="hero" className="pt-28 pb-8 md:py-24">
       <div className="mx-auto mb-8 max-w-6xl px-4 md:mb-16 md:px-6">
@@ -31,14 +58,40 @@ export function Hero() {
       </div>
 
       <div className="mx-auto w-full max-w-5xl px-2 md:px-6">
-        <video
-          src="https://fivhph8bfjjq3xsn.public.blob.vercel-storage.com/Kakadu%20.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="aspect-[16/10] w-full rounded-lg border border-border object-cover sm:aspect-video"
-        />
+        <div className="group relative">
+          <video
+            ref={videoRef}
+            src="https://fivhph8bfjjq3xsn.public.blob.vercel-storage.com/Kakadu%20.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="aspect-[16/10] w-full rounded-lg border border-border object-cover sm:aspect-video"
+          />
+
+          <div className="absolute bottom-3 right-3 flex gap-2 md:bottom-4 md:right-4">
+            <Button
+              type="button"
+              size="icon"
+              variant="secondary"
+              onClick={togglePlay}
+              aria-label={isPlaying ? "Pause video" : "Play video"}
+              className="rounded-full bg-background/70 backdrop-blur-sm hover:bg-background/90"
+            >
+              {isPlaying ? <Pause /> : <Play />}
+            </Button>
+            <Button
+              type="button"
+              size="icon"
+              variant="secondary"
+              onClick={toggleMute}
+              aria-label={isMuted ? "Unmute video" : "Mute video"}
+              className="rounded-full bg-background/70 backdrop-blur-sm hover:bg-background/90"
+            >
+              {isMuted ? <VolumeX /> : <Volume2 />}
+            </Button>
+          </div>
+        </div>
       </div>
     </section>
   )

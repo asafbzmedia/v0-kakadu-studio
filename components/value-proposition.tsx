@@ -15,7 +15,7 @@ const values = [
   },
   {
     icon: KakaduCreative,
-    title: "Stand Out.",
+    title: "Stand Out",
     description:
       "Cinematic production value, built for modern teams. So you can focus on marketing strategy, not production logistics.",
   },

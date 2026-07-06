@@ -5,19 +5,19 @@ const values = [
     icon: KakaduCreative,
     title: "Infinite Creative Freedom",
     description:
-      "No limits on locations, actors, or physics. If you can imagine it, we can bring it to life on screen with cinematic quality.",
+      "Bring impossible concepts to life—from futuristic worlds to abstract cybersecurity threats—without the constraints of traditional production.",
   },
   {
     icon: KakaduSpeed,
-    title: "Hyper-Speed Turnaround",
+    title: "Launch While It Matters",
     description:
-      "Traditional productions take months. Our advanced AI workflow condenses timelines into days, keeping your brand ahead of the market.",
+      "Markets move fast. Campaigns shouldn't take months. Our AI-powered workflow helps you go from concept to final delivery in days—not weeks.",
   },
   {
     icon: KakaduScale,
     title: "Premium Scale, Smart Budgets",
     description:
-      "Get block-buster visuals and high-end production value at a fraction of the cost of traditional camera crews and VFX studios.",
+      "Achieve cinematic production value without the cost and complexity of large film crews, expensive locations, or heavy post-production. Spend more on your marketing strategy—not your production logistics.",
   },
 ]
 

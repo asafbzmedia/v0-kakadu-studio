@@ -2,7 +2,7 @@ import { KakaduCreative, KakaduSpeed, KakaduScale } from "@/components/icons/kak
 
 const values = [
   {
-    icon: KakaduCreative,
+    icon: KakaduScale,
     title: "Ideas Without Limits",
     description:
       "Bring impossible concepts to life—from futuristic worlds to abstract cybersecurity threats—without the constraints of traditional production.",
@@ -14,7 +14,7 @@ const values = [
       "Markets move fast. Campaigns shouldn't take months. Our AI-powered workflow helps you go from concept to final delivery in days—not weeks.",
   },
   {
-    icon: KakaduScale,
+    icon: KakaduCreative,
     title: "Stand Out.",
     description:
       "Cinematic production value, built for modern teams. So you can focus on marketing strategy, not production logistics.",

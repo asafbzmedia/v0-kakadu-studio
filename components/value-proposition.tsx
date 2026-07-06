@@ -3,7 +3,7 @@ import { KakaduCreative, KakaduSpeed, KakaduScale } from "@/components/icons/kak
 const values = [
   {
     icon: KakaduCreative,
-    title: "Infinite Creative Freedom",
+    title: "Ideas Without Limits",
     description:
       "Bring impossible concepts to life—from futuristic worlds to abstract cybersecurity threats—without the constraints of traditional production.",
   },
@@ -15,9 +15,9 @@ const values = [
   },
   {
     icon: KakaduScale,
-    title: "Premium Scale, Smart Budgets",
+    title: "Stand Out.",
     description:
-      "Achieve cinematic production value without the cost and complexity of large film crews, expensive locations, or heavy post-production. Spend more on your marketing strategy—not your production logistics.",
+      "Spend more on your marketing strategy—not your production logistics.",
   },
 ]
 
@@ -28,7 +28,7 @@ export function ValueProposition() {
         {/* Header */}
         <div className="mb-12 md:mb-16">
           <h2 className="max-w-3xl text-balance text-3xl font-bold tracking-tight text-foreground md:text-4xl lg:text-5xl">
-            Why AI Video Production?
+            Why Modern Brands Choose AI-Powered Production
           </h2>
         </div>
 

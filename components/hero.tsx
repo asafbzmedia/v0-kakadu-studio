@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef, useState } from "react"
-import { ArrowRight, Pause, Play, Volume2, VolumeX } from "lucide-react"
+import { Pause, Play, Volume2, VolumeX } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 
@@ -34,21 +34,9 @@ export function Hero() {
     <section id="hero" className="pt-28 pb-8 md:py-24">
       <div className="mx-auto mb-8 max-w-6xl px-4 md:mb-16 md:px-6">
         <div className="flex flex-col items-center text-center">
-          <h1 className="mb-8 max-w-3xl text-4xl font-semibold tracking-tight text-foreground md:text-5xl lg:text-6xl text-balance">
+          <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-foreground md:text-5xl lg:text-6xl text-balance">
             We make smart, funny, cinematic films for the tech world
           </h1>
-
-          <div className="flex flex-row gap-3">
-            <Button size="lg" asChild>
-              <a href="#work">
-                View Our Work
-                <ArrowRight />
-              </a>
-            </Button>
-            <Button variant="outline" size="lg" asChild>
-              <a href="#contact">Get in Touch</a>
-            </Button>
-          </div>
         </div>
       </div>
 

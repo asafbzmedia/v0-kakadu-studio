@@ -35,12 +35,14 @@ export function Hero() {
       <div className="mx-auto mb-8 max-w-6xl px-4 md:mb-16 md:px-6">
         <div className="flex flex-col items-center text-center">
           <h1 className="mb-4 max-w-3xl text-4xl font-semibold tracking-tight text-foreground md:text-5xl lg:text-6xl text-balance">
-            Serious stories. Wild creativity.
+            We make smart, funny, cinematic films for the tech world
           </h1>
 
           <p className="mb-8 max-w-2xl text-lg text-muted-foreground text-pretty">
-            We help technology companies launch products, explain complex ideas
-            and stand out with cinematic AI-powered storytelling.
+            Kakadu Studio was founded by award-winning cinematographer Ben
+            Peled and director-editor Asaf Ben Zichri. We create films for
+            technology, AI, and cybersecurity companies, from the first idea to
+            the final cut.
           </p>
 
           <div className="flex flex-row gap-3">
@@ -57,7 +59,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="mx-auto w-full max-w-5xl px-2 md:px-6">
+      <div className="w-full">
         <div className="group relative">
           <video
             ref={videoRef}
@@ -66,7 +68,7 @@ export function Hero() {
             loop
             muted
             playsInline
-            className="aspect-[16/10] w-full rounded-lg border border-border object-cover sm:aspect-video"
+            className="h-screen w-full object-cover"
           />
 
           <div className="absolute bottom-3 right-3 flex gap-2 md:bottom-4 md:right-4">

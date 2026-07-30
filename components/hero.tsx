@@ -31,63 +31,53 @@ export function Hero() {
   }
 
   return (
-    <section id="hero" className="group relative h-dvh w-full overflow-hidden">
-      {/* Video background */}
-      <video
-        ref={videoRef}
-        src="https://fivhph8bfjjq3xsn.public.blob.vercel-storage.com/Kakadu%20.mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 z-0 h-full w-full object-cover"
-      />
-
-      {/* Contrast overlay */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 z-[5] bg-gradient-to-b from-black/60 via-black/30 to-black/60"
-      />
-
-      {/* Text overlay */}
-      <div
-        id="showreel"
-        className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center md:px-6"
-      >
-        <h1 className="max-w-5xl text-balance text-4xl font-semibold leading-tight tracking-tight text-white md:text-5xl lg:text-6xl">
-          We make smart, funny, cinematic films{" "}
-          <span className="md:block">for the tech world</span>
-        </h1>
-        <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-white/80 md:text-lg">
-          Kakadu Studio was founded by award-winning cinematographer Ben Peled
-          and director-editor Asaf Ben Zichri. We create films for technology,
-          AI, and cybersecurity companies, from the first idea to the final
-          cut.
-        </p>
+    <section id="hero" className="pt-28 pb-8 md:py-24">
+      <div className="mx-auto mb-8 max-w-6xl px-4 md:mb-16 md:px-6">
+        <div className="flex flex-col items-center text-center">
+          <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-foreground md:text-5xl lg:text-6xl text-balance">
+            We make smart, funny, cinematic films for the tech world
+          </h1>
+        </div>
       </div>
 
-      {/* Video controls */}
-      <div className="absolute bottom-4 right-4 z-10 flex gap-2 md:bottom-6 md:right-6">
-        <Button
-          type="button"
-          size="icon"
-          variant="secondary"
-          onClick={togglePlay}
-          aria-label={isPlaying ? "Pause video" : "Play video"}
-          className="rounded-full bg-background/70 backdrop-blur-sm hover:bg-background/90"
-        >
-          {isPlaying ? <Pause /> : <Play />}
-        </Button>
-        <Button
-          type="button"
-          size="icon"
-          variant="secondary"
-          onClick={toggleMute}
-          aria-label={isMuted ? "Unmute video" : "Mute video"}
-          className="rounded-full bg-background/70 backdrop-blur-sm hover:bg-background/90"
-        >
-          {isMuted ? <VolumeX /> : <Volume2 />}
-        </Button>
+      <div id="showreel" className="w-full">
+        <div className="group relative">
+          <span className="pointer-events-none absolute left-3 top-3 z-10 rounded-full bg-background/70 px-3 py-1 text-xs font-medium uppercase tracking-wider text-foreground backdrop-blur-sm md:left-4 md:top-4">
+            Showreel
+          </span>
+          <video
+            ref={videoRef}
+            src="https://fivhph8bfjjq3xsn.public.blob.vercel-storage.com/Kakadu%20.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="h-screen w-full object-cover"
+          />
+
+          <div className="absolute bottom-3 right-3 flex gap-2 md:bottom-4 md:right-4">
+            <Button
+              type="button"
+              size="icon"
+              variant="secondary"
+              onClick={togglePlay}
+              aria-label={isPlaying ? "Pause video" : "Play video"}
+              className="rounded-full bg-background/70 backdrop-blur-sm hover:bg-background/90"
+            >
+              {isPlaying ? <Pause /> : <Play />}
+            </Button>
+            <Button
+              type="button"
+              size="icon"
+              variant="secondary"
+              onClick={toggleMute}
+              aria-label={isMuted ? "Unmute video" : "Mute video"}
+              className="rounded-full bg-background/70 backdrop-blur-sm hover:bg-background/90"
+            >
+              {isMuted ? <VolumeX /> : <Volume2 />}
+            </Button>
+          </div>
+        </div>
       </div>
     </section>
   )

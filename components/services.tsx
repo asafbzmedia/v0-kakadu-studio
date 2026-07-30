@@ -36,7 +36,7 @@ export function Services() {
     <section id="services" className="py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         {/* Header */}
-        <div className="mb-12 md:mb-16">
+        <div className="mb-16 md:mb-24">
           <p className="mb-4 text-sm font-medium uppercase tracking-wider text-muted-foreground">What We Make</p>
           <h2 className="max-w-3xl text-balance text-3xl font-bold tracking-tight text-foreground md:text-4xl lg:text-5xl">
             A brief overview of what we create
@@ -48,13 +48,17 @@ export function Services() {
           {services.map((service) => (
             <li
               key={service.number}
-              className="group grid grid-cols-1 gap-3 border-b border-border py-8 transition-colors md:grid-cols-12 md:items-baseline md:gap-6 md:py-10"
+              className="group grid grid-cols-1 border-b border-border py-12 transition-colors md:grid-cols-12 md:items-start md:gap-10 md:py-16 lg:py-20"
             >
-              <span className="text-sm font-medium tracking-wider text-kakadu md:col-span-1">{service.number}</span>
-              <h3 className="text-balance text-2xl font-bold tracking-tight text-foreground transition-colors group-hover:text-kakadu md:col-span-5 md:text-3xl">
+              <span className="mb-6 block text-sm font-medium tracking-widest text-kakadu md:col-span-1 md:mb-0 md:pt-2">
+                {service.number}
+              </span>
+              <h3 className="mb-4 text-balance text-2xl font-bold leading-tight tracking-tight text-foreground transition-colors group-hover:text-kakadu md:col-span-5 md:mb-0 md:text-3xl lg:text-4xl">
                 {service.title}
               </h3>
-              <p className="text-pretty leading-relaxed text-muted-foreground md:col-span-6">{service.description}</p>
+              <p className="max-w-xl text-pretty text-base leading-relaxed text-muted-foreground md:col-span-6 md:pt-2 lg:text-lg">
+                {service.description}
+              </p>
             </li>
           ))}
         </ul>

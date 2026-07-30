@@ -47,9 +47,9 @@ export function Services() {
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         {/* Header */}
         <div className="mb-12 md:mb-16">
-          <p className="mb-4 text-sm font-medium uppercase tracking-wider text-muted-foreground">Services</p>
+          <p className="mb-4 text-sm font-medium uppercase tracking-wider text-muted-foreground">What We Make</p>
           <h2 className="max-w-3xl text-balance text-3xl font-bold tracking-tight text-foreground md:text-4xl lg:text-5xl">
-            Video production tailored to your needs
+            A brief overview of what we create
           </h2>
         </div>
       </div>

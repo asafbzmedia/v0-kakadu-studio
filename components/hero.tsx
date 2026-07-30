@@ -59,8 +59,11 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="w-full">
+      <div id="showreel" className="w-full">
         <div className="group relative">
+          <span className="pointer-events-none absolute left-3 top-3 z-10 rounded-full bg-background/70 px-3 py-1 text-xs font-medium uppercase tracking-wider text-foreground backdrop-blur-sm md:left-4 md:top-4">
+            Showreel
+          </span>
           <video
             ref={videoRef}
             src="https://fivhph8bfjjq3xsn.public.blob.vercel-storage.com/Kakadu%20.mp4"

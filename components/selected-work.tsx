@@ -6,10 +6,11 @@ import { Badge } from "@/components/ui/badge"
 
 interface VideoCardProps {
   title: string
+  description: string
   videoSrc: string
 }
 
-function VideoCard({ title, videoSrc }: VideoCardProps) {
+function VideoCard({ title, description, videoSrc }: VideoCardProps) {
   const videoRef = useRef<HTMLVideoElement>(null)
   const cardRef = useRef<HTMLDivElement>(null)
   const [isPlaying, setIsPlaying] = useState(false)
@@ -84,7 +85,10 @@ function VideoCard({ title, videoSrc }: VideoCardProps) {
   }
 
   return (
-    <article className="group flex flex-col gap-4">
+    <article className="group flex flex-col gap-3">
+      <h3 className="text-xl font-semibold tracking-tight text-foreground">
+        {title}
+      </h3>
       <div
         ref={cardRef}
         className="relative aspect-video w-full overflow-hidden rounded-xl border border-border bg-muted"
@@ -109,6 +113,9 @@ function VideoCard({ title, videoSrc }: VideoCardProps) {
 
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-30" />
       </div>
+      <p className="text-sm leading-relaxed text-muted-foreground">
+        {description}
+      </p>
     </article>
   )
 }
@@ -116,26 +123,38 @@ function VideoCard({ title, videoSrc }: VideoCardProps) {
 const projects = [
   {
     title: "Advertisement",
+    description:
+      "A high-impact spec commercial built to capture attention in seconds, blending bold visuals with a punchy narrative.",
     videoSrc: "https://fivhph8bfjjq3xsn.public.blob.vercel-storage.com/adidas_ai_spec%20%282160p%29.mp4",
   },
   {
     title: "Promotional",
+    description:
+      "A polished promo piece that tells a brand story with cinematic energy, pacing, and personality.",
     videoSrc: "https://fivhph8bfjjq3xsn.public.blob.vercel-storage.com/Khabib%20For%20Site.mp4",
   },
   {
     title: "Performance",
+    description:
+      "Data-driven creative designed to maximize engagement and conversions across paid channels.",
     videoSrc: "https://fivhph8bfjjq3xsn.public.blob.vercel-storage.com/Kakadu%20.mp4",
   },
   {
     title: "Vertical micro-drama",
+    description:
+      "Short-form episodic storytelling crafted for mobile-first audiences, one gripping scene at a time.",
     videoSrc: "https://fivhph8bfjjq3xsn.public.blob.vercel-storage.com/Noir.mp4",
   },
   {
     title: "Explainer",
+    description:
+      "Complex technology broken down into a clear, engaging story that anyone can follow.",
     videoSrc: "https://fivhph8bfjjq3xsn.public.blob.vercel-storage.com/Magneto%20no%20sub.mp4",
   },
   {
     title: "Short Film",
+    description:
+      "An original cinematic piece that pushes the boundaries of AI-driven storytelling.",
     videoSrc:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/14904221_1080_1920_30fps-e3HiwZxJvX69Oq7sYwAd50R4Pd8WYh.mp4",
   },
@@ -158,7 +177,12 @@ export function SelectedWork() {
         {/* Video Grid - each video shown clearly */}
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10">
           {projects.map((project) => (
-            <VideoCard key={project.title} title={project.title} videoSrc={project.videoSrc} />
+            <VideoCard
+              key={project.title}
+              title={project.title}
+              description={project.description}
+              videoSrc={project.videoSrc}
+            />
           ))}
         </div>
       </div>
